@@ -40,7 +40,7 @@ class ListPage extends React.Component {
               color: "#fff"
             }}
           >
-            Ant Wagering
+            Ant Wagers
           </h1>
         </div>
 

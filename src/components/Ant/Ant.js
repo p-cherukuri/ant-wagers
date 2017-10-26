@@ -1,9 +1,8 @@
 import React from "react";
-import { GenerateAntWinLikelihoodCalculator } from "../helpers/WinLikelihoodCalc";
+import { GenerateAntWinLikelihoodCalculator } from "../../helpers/WinLikelihoodCalc";
 import ProgressButton from "react-progress-button";
-import "../../node_modules/react-progress-button/react-progress-button.css";
-
-class AntInfo extends React.Component {
+import "./styles/react-progress-button.css";
+class Ant extends React.Component {
   constructor(props) {
     super(props);
     this.state = { buttonState: "", buttonText: "Check Win Odds", value: 0 };
@@ -40,8 +39,8 @@ class AntInfo extends React.Component {
         style={{
           display: "flex",
           flexDirection: "column",
-          height: 300,
-          width: 300
+          height: 500,
+          width: 345
         }}
       >
         <div
@@ -51,18 +50,35 @@ class AntInfo extends React.Component {
             boxShadow: "5px 5px 5px 5px #888888",
             textAlign: "center",
             paddingBottom: "5%",
-            position: "relative"
+            padding: "5%",
+            position: "relative",
+            borderColor: "blue",
+            backgroundColor: "#3a5ef2"
           }}
         >
-          <h4 className="antName">{this.props.ants.name}</h4>
-          <span
+          <h4
+            className="antName"
             style={{
-              paddingBottom: "30%"
+              fontSize: "17px",
+              letterSpacing: "0.3px",
+              fontWeight: 550,
+              color: "whitesmoke"
             }}
           >
-            <span>Color: {this.props.ants.color} | </span>
-            <span>Length: {this.props.ants.length} | </span>
-            <span>Weight: {this.props.ants.weight}</span>
+            {this.props.ant.name}
+          </h4>
+          <span
+            style={{
+              paddingBottom: "30%",
+              fontSize: "13px",
+              letterSpacing: "2px",
+              fontWeight: 600,
+              color: "whitesmoke"
+            }}
+          >
+            <span>Color: {this.props.ant.color} | </span>
+            <span>Length: {this.props.ant.length} mm | </span>
+            <span>Weight: {this.props.ant.weight} mg</span>
           </span>
           <br />
           <br />
@@ -79,4 +95,4 @@ class AntInfo extends React.Component {
   }
 }
 
-export default AntInfo;
+export default Ant;

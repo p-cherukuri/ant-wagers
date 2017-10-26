@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { QueryRenderer, graphql } from "react-relay";
 import environment from "./RelayEnvironment";
-import logo from "./logo.svg";
 import ListPage from "./components/ListPage";
-
+// Query to fetch list of competing ants from GraphQL endpoint
 const AppQuery = graphql`
   query AppQuery {
     ants {
@@ -18,6 +17,7 @@ const AppQuery = graphql`
 class App extends Component {
   render() {
     return (
+      // Using QueryRenderer to render list of ants as props and pass them down to the ListPage component
       <QueryRenderer
         environment={environment}
         query={AppQuery}
@@ -25,7 +25,6 @@ class App extends Component {
           if (error) {
             return <div>{error.message}</div>;
           } else if (props) {
-            console.log(props.ants);
             return <ListPage ants={props.ants} />;
           }
           return <div>Loading</div>;
